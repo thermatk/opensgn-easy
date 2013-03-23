@@ -44,6 +44,37 @@
 <p>Having trouble? Visit the topic on XDA-Developers(link)!</p>
 
 <h1>Instruction</h1>
+
+<h2>Prerequisites</h2>
+
+<ul>
+<li>Samsung Galaxy Note 10.1 with root, BusyBox, terminal emulator app and some free space</li>
+<li>A real or virtual PC with Ubuntu (any other GNU/Linux should be working though) and some free space</li>
+<li>Some free time</li>
+</ul><h2>Easy way - using prepared binaries (not ready yet!)</h2>
+
+<p>Download recovery.img: DOWNLOAD LINK SHOULD BE HERE
+Download ubuntu.img: DOWNLOAD LINK SHOULD BE HERE
+Unpack the files from archives and place them to root of your internal sdcard. Go to your preffered terminal emulator app and type:</p>
+
+<pre><code>$ su
+# dd if=recovery.img of=/dev/block/mmcblk0p6
+</code></pre>
+
+<p>Now you can turn off your tablet and boot up Ubuntu by holding Volume Up and Power buttons.</p>
+
+<h2>Harder way - how to prepare binaries</h2>
+
+<h3>Compile kernel</h3>
+
+<h3>Create rootfs</h3>
+
+<ol>
+<li>Get LinuxDeploy and apply these settings:...</li>
+<li>Copy the modules directory from previous step to the appropriate place</li>
+<li>Do something to get it working...</li>
+<li>Leave it in root of your sdcard with a certain name configured in recovery</li>
+</ol>
       </section>
     </div>
 

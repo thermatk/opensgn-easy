@@ -58,8 +58,7 @@
 DOWNLOAD LINK SHOULD BE HERE</li>
 <li>Download ubuntu.img: 
 DOWNLOAD LINK SHOULD BE HERE</li>
-<li>
-<p>Unpack the files from archives and place them to root of your internal sdcard. Go to your preffered terminal emulator app and type:</p>
+<li>Unpack the files from archives and place them to root of your internal sdcard. Go to your preffered terminal emulator app and type:
 
 <pre><code>su
 dd if=recovery.img of=/dev/block/mmcblk0p6
@@ -73,30 +72,26 @@ dd if=recovery.img of=/dev/block/mmcblk0p6
 
 <ol>
 <li>Boot up your Ubuntu PC</li>
-<li>
-<p>Install git and some tools for building:</p>
+<li>Install git and some tools for building:
 
 <pre><code>sudo apt-get install git build-essential libncurses5-dev
 </code></pre>
 </li>
-<li>
-<p>Now create a folder and clone the repository with kernel sources there:</p>
+<li>Now create a folder and clone the repository with kernel sources there:
 
 <pre><code>mkdir compileopensgn
 cd compileopensgn/
 git clone https://github.com/X-Stranger/N8000.git -b arch
 </code></pre>
 </li>
-<li>
-<p>Clone the prebuilt toolchain to the same “compileopensgn” folder and move it to /opt:</p>
+<li>Clone the prebuilt toolchain to the same “compileopensgn” folder and move it to /opt:
 
 <pre><code>git clone https://android.googlesource.com/platform/prebuilt
 sudo mv prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/ /opt/
 rm -r prebuilt
 </code></pre>
 </li>
-<li>
-<p>Now go to the downloaded kernel and configure it:</p>
+<li>Now go to the downloaded kernel and configure it:
 
 <pre><code>cd N8000
 make mrproper
@@ -106,8 +101,7 @@ export SUBARCH=armv7h
 make n8000_linux_mali_defconfig
 </code></pre>
 </li>
-<li>
-<p>Compile kernel:</p>
+<li>Compile kernel:
 
 <pre><code>export INSTALL_MOD_PATH=$(pwd)/compiledmodules
 make -j2
@@ -116,8 +110,7 @@ rm compiledmodules/lib/modules/3.0.31*/source
 rm compiledmodules/lib/modules/3.0.31*/build
 </code></pre>
 </li>
-<li>
-<p>Copy compiled kernel and modules:</p>
+<li>Copy compiled kernel and modules:
 
 <pre><code>cd ..
 mkdir results

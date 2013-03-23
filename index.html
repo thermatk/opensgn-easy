@@ -57,8 +57,8 @@
 Download ubuntu.img: DOWNLOAD LINK SHOULD BE HERE
 Unpack the files from archives and place them to root of your internal sdcard. Go to your preffered terminal emulator app and type:</p>
 
-<pre><code>$ su
-# dd if=recovery.img of=/dev/block/mmcblk0p6
+<pre><code>su
+dd if=recovery.img of=/dev/block/mmcblk0p6
 </code></pre>
 
 <p>Now you can turn off your tablet and boot up Ubuntu by holding Volume Up and Power buttons.</p>
@@ -67,7 +67,54 @@ Unpack the files from archives and place them to root of your internal sdcard. G
 
 <h3>Compile kernel</h3>
 
-<h3>Create rootfs</h3>
+<ol>
+<li>Boot up your Ubuntu PC</li>
+<li>Install git and some tools for building:</li>
+</ol><pre><code>sudo apt-get install git build-essential libncurses5-dev
+</code></pre>
+
+<ol>
+<li>Now create a folder and clone the repository with kernel sources there:</li>
+</ol><pre><code>mkdir compileopensgn
+cd compileopensgn/
+git clone https://github.com/X-Stranger/N8000.git -b arch
+</code></pre>
+
+<ol>
+<li>Clone the prebuilt toolchain to the same “compileopensgn” folder and move it to /opt:</li>
+</ol><pre><code>git clone https://android.googlesource.com/platform/prebuilt
+sudo mv prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/ /opt/
+rm -r prebuilt
+</code></pre>
+
+<ol>
+<li>Now go to the downloaded kernel and configure it:</li>
+</ol><pre><code>cd N8000
+make mrproper
+export CROSS_COMPILE=/opt/arm-eabi-4.4.3/bin/arm-eabi-
+export ARCH=arm
+export SUBARCH=armv7h
+make n8000_linux_mali_defconfig
+</code></pre>
+
+<ol>
+<li>Compile kernel:</li>
+</ol><pre><code>export INSTALL_MOD_PATH=$(pwd)/compiledmodules
+make -j2
+make modules_install
+</code></pre>
+
+<ol>
+<li>Copy compiled kernel and modules:</li>
+</ol><pre><code>cd ..
+mkdir results
+mkdir results/boot/
+cp N8000/arch/arm/boot/zImage results/boot/zImage
+cp N8000/System.map results/boot/System.map
+cp -r N8000/compiledmodules/lib/ results/
+</code></pre>
+
+<h3>Create rootfs (not ready yet!)</h3>
 
 <ol>
 <li>Get LinuxDeploy and apply these settings:...</li>

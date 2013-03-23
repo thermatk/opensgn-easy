@@ -112,6 +112,8 @@ make n8000_linux_mali_defconfig
 <pre><code>export INSTALL_MOD_PATH=$(pwd)/compiledmodules
 make -j2
 make modules_install
+rm compiledmodules/lib/modules/3.0.31*/source
+rm compiledmodules/lib/modules/3.0.31*/build
 </code></pre>
 </li>
 <li>

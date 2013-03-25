@@ -117,6 +117,7 @@ mkdir results
 mkdir results/boot/
 cp N8000/arch/arm/boot/zImage results/boot/zImage
 cp N8000/System.map results/boot/System.map
+cp N8000/.config results/boot/config-`ls N8000/compiledmodules/lib/modules/`
 cp -r N8000/compiledmodules/lib/ results/
 </code></pre>
 </li>

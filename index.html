@@ -59,15 +59,50 @@
             <div class="alert">
               <strong>Warning!</strong> Section is not ready yet.
             </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Ubuntu</th>
+                        <th>Debian</th>
+                        <th>Arch</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>recovery booting mmcblk1p1</th>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                      </tr>
+                      <tr>
+                        <th>recovery booting linux.img from internal sdcard</th>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><a href="http://d-h.st/iXo">http://d-h.st/iXo</a></td>
+                      </tr>
+                      <tr>
+                        <th>linux.img</th>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><span class="label label-warning">SHOULD BE HERE</span></td>
+                        <td><a href="http://d-h.st/jUV">http://d-h.st/jUV</a></td>
+                      </tr>
+                    </tbody>
+                  </table>            
             <ol>
-            <li>Download recovery.img: <span class="label label-warning">DOWNLOAD LINK SHOULD BE HERE</span>
-            </li>
-            <li>Download ubuntu.img: <span class="label label-warning">DOWNLOAD LINK SHOULD BE HERE</span>
-            </li>
+            <li>Download recovery.img and linux.img</li>
             <li>Unpack the files from archives and place them to root of your internal sdcard. Go to your preffered terminal emulator app and type:
 <pre class="prettyprint linenums">
 su
 dd if=recovery.img of=/dev/block/mmcblk0p6</pre>
+            </li>
+            <li>If you want to boot from a partition, <a href="#repartition">prepared a partition</a> and downloaded a passing recovery in the same app type:
+              <span class="label label-warning">help needed, resize2fs is not included in BusyBox and with after dd ext4 is not knowing about free space</span>
+<pre class="prettyprint linenums">
+dd if=linux.img of=/dev/block/mmcblk1p1</pre>
             </li>
             </ol>
             <p>Now you can turn off your tablet and boot up GNU/Linux by holding Volume Up and Power buttons.</p>

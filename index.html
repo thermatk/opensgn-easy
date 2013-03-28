@@ -401,22 +401,23 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                   </div>
                 </div>
                 <div class="tab-pane archsgn-tab">
-                  <div class="alert">
-                    <strong>Warning!</strong> Section is not ready yet.
-                  </div>                  
-<pre class="prettyprint linenums">pacman -S mkinitcpio cpio util-linux libsigsegv
-sudo mkdir /dev/fd/ # to make mkinitcpio working <span class="label label-warning">help needed</span>
+<pre class="prettyprint linenums">pacman -S mkinitcpio cpio util-linux libsigsegv base-devel packer git
+ln -s /proc/self/fd /dev/fd
+packer -S abootimg-git
 cd /boot</pre>
                   <!-- PLACE SPECIFIC -->
                   <div class="tab-content">
                     <div class="tab-pane imgfile-tab active">
+                      <div class="alert">
+                        <strong>Warning!</strong> Section is not ready yet.
+                      </div>     
 <pre class="prettyprint linenums">mkinitcpio <span class="label label-warning">help needed</span>
-abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1" <span class="label label-warning">help needed</span>
+abootimg --create recovery.img -k zImage -r initrd.img <span class="label label-warning">help needed</span>
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                     </div>
                     <div class="tab-pane partition-tab">
-<pre class="prettyprint linenums">mkinitcpio <span class="label label-warning">help needed</span>
-abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1" <span class="label label-warning">help needed</span>
+<pre class="prettyprint linenums">mkinitcpio -k `ls /lib/modules/` -g initrd.img
+abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1"
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                     </div>
                   </div>

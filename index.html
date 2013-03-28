@@ -170,14 +170,13 @@ make n8000_linux_mali_defconfig</pre>
                   </div>      
                   <pre><span class="label label-warning">help needed</span></pre>
                 </div>
-
                 <div class="tab-pane partition-tab">
                   <div class="alert">
-                    <strong>Warning!</strong> Section not ready yet? Or ready?
+                    <strong>Warning!</strong> Section not ready yet? Or ready? Why X-Stranger and exception13 hardcoded it?
                   </div> 
                   <pre>make menuconfig</pre>
-                  Go to "Boot options" and change kernel commandline to look like
-                  <pre>root=/dev/mmcblkXpY ro rootfstype=ext4 rootwait quiet vmalloc=144M</pre>
+                  Go to "Boot options" and change kernel commandline to look like <span class="label label-warning">help needed</span>
+                  <pre>root=/dev/mmcblkXpY rw rootfstype=ext4 rootwait quiet vmalloc=144M</pre>
                   where X is the number of the block device (0 - internal sdcard, 1 - external sdcard) and Y is the number of partition.
                   <a href="#repartition">In case you don't know how to create a separate partition</a>
                 </div>
@@ -185,8 +184,11 @@ make n8000_linux_mali_defconfig</pre>
               </div>
             </li>
             <li>Compile kernel:
+              <div class="alert alert-info">
+              You can write a higher number after "-j" on the second line to make it faster: rule is number of CPU cores + 1
+              </div>
 <pre class="prettyprint linenums">export INSTALL_MOD_PATH=$(pwd)/compiledmodules
-make -j2
+make -j2 # CPU cores + 1 here
 make modules_install
 rm compiledmodules/lib/modules/3.0.31*/source
 rm compiledmodules/lib/modules/3.0.31*/build</pre>
@@ -245,7 +247,6 @@ rm -r N8000/compiledmodules</pre>
                             <div class="tab-pane imgfile-tab active">
                               Image file
                             </div>
-
                             <div class="tab-pane partition-tab">
                               Disk partition
                             </div>
@@ -318,17 +319,16 @@ rm -r N8000/compiledmodules</pre>
                             <div class="tab-pane imgfile-tab active">
                               Image file
                             </div>
-
                             <div class="tab-pane partition-tab">
                               Disk partition
                             </div>
                           </div>
                         </td>
                       </tr>
-                      <tr>
-                        <!-- PLACE SPECIFIC -->
+                      <tr>                        
                         <td>Installation path</td>
                         <td>
+                          <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
                             <div class="tab-pane imgfile-tab active">
                               path to linux.img. For example, <pre>/mnt/sdcard/linux.img</pre>
@@ -385,18 +385,41 @@ cp -r /mnt/sdcard/results/lib/modules /lib/
                   </div>
 <pre class="prettyprint linenums">apt-get update
 apt-get install abootimg
-mkinitramfs <span class="label label-warning">help needed, is specific to the installation path</span>
-abootimg <span class="label label-warning">help needed</span>
+cd /boot</pre>
+                  <!-- PLACE SPECIFIC -->
+                  <div class="tab-content">
+                    <div class="tab-pane imgfile-tab active">
+<pre class="prettyprint linenums">mkinitramfs <span class="label label-warning">help needed</span>
+abootimg --create recovery.img -k zImage -r initrd.img <span class="label label-warning">help needed</span>
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
+                    </div>
+                    <div class="tab-pane partition-tab">
+<pre class="prettyprint linenums">mkinitramfs <span class="label label-warning">help needed</span>
+abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1" <span class="label label-warning">help needed</span>
+dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
+                    </div>
+                  </div>
                 </div>
                 <div class="tab-pane archsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
-<pre>pacman -S mkinitcpio<span class="label label-warning">help needed</span>
-mkinitrcpio <span class="label label-warning">help needed, is specific to the installation path</span>
-abootimg <span class="label label-warning">help needed</span>
+<pre class="prettyprint linenums">pacman -S mkinitcpio cpio util-linux libsigsegv
+sudo mkdir /dev/fd/ # to make mkinitcpio working <span class="label label-warning">help needed</span>
+cd /boot</pre>
+                  <!-- PLACE SPECIFIC -->
+                  <div class="tab-content">
+                    <div class="tab-pane imgfile-tab active">
+<pre class="prettyprint linenums">mkinitcpio <span class="label label-warning">help needed</span>
+abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1" <span class="label label-warning">help needed</span>
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
+                    </div>
+                    <div class="tab-pane partition-tab">
+<pre class="prettyprint linenums">mkinitcpio <span class="label label-warning">help needed</span>
+abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1" <span class="label label-warning">help needed</span>
+dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>

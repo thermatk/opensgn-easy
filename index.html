@@ -130,11 +130,8 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
                 <div class="tab-pane debpc-tab active">
                   <pre>sudo apt-get install git build-essential libncurses5-dev</pre>
                 </div>
-                <div class="tab-pane archpc-tab">
-                  <div class="alert">
-                    <strong>Warning!</strong> Section is not ready yet.
-                  </div>                  
-                  <pre>sudo pacman -S <span class="label label-warning">help needed</span></pre>
+                <div class="tab-pane archpc-tab">               
+                  <pre>sudo pacman -Sy ncurses base-devel git</pre>
                 </div>
               </div>
                         
@@ -417,7 +414,7 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
-<pre>pacman -S xserver-xorg-video-fbdev xserver-xorg-input-evdev <span class="label label-warning">help needed</span></pre>
+<pre>pacman -S xf86-video-fbdev xf86-input-evdev <span class="label label-warning">help needed</span></pre>
                 </div>
               </div>
             </li>

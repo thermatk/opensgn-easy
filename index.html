@@ -20,7 +20,7 @@
       <div class="masthead">
         <a id="forkme_banner" href="https://github.com/thermatk/opensgn-easy">View on GitHub</a>
 
-        <h3 id="project_title" class="muted">OpenSGN-easy project</h1>
+        <h3 id="project_title" class="muted">OpenSGN-easy project</h3>
         <hr>
         <p class="lead text-center">Necessary files and documentation for easily building native GNU/Linux system for Samsung Galaxy Note 10.1</p> 
       </div>
@@ -29,7 +29,7 @@
       <!-- MAIN CONTENT -->
       <div id="main_content_wrap">
         <section id="main_content">
-            <h3>Welcome to OpenSGN-easy.</h3>
+            <h1>Welcome to OpenSGN-easy.</h1>
             <p>Perhaps, you are searching for instructions. <a href="#instructions">Here they are</a>!</p>
 
             <h3>Authors and Contributors</h3>
@@ -45,7 +45,7 @@
               <h4>Working:</h4>
               <p>CPU, screen, touchscreen, S-pen, GPU framebuffer, GPU with OpenGL ES, internalSD, externalSD, WiFi, Bluetooth, ?</p>
               <h4>WIP:</h4>
-              <p>modem(exception13 <a href="http://forum.xda-developers.com/showpost.php?p=39625443&postcount=222">shared some success</a>), cameras, gps, better GPU driver, MHL this guide :)</p>
+              <p>modem(exception13 <a href="http://forum.xda-developers.com/showpost.php?p=39625443&amp;postcount=222">shared some success</a>), cameras, gps, better GPU driver, MHL this guide :)</p>
             <h1 id="instructions">Instruction</h1>
 
             <h2>Prerequisites</h2>
@@ -106,6 +106,7 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
 
             <h2>Harder way - how to prepare binaries</h2>
             Choose where you want to place your native GNU/Linux to adapt the guide:
+            <!-- PLACE CHOOSING -->
             <ul class="nav nav-tabs" id="notelocatTab">
               <li class="active"><a href="#img_file" data-toggle="tab" data-target=".imgfile-tab">A linux.img file<span class="label label-warning">not ready</span></a></li>
               <li><a href="#partition" data-toggle="tab" data-target=".partition-tab">Separate partition<span class="label label-warning">not ready</span></a></li>
@@ -113,9 +114,10 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
             <h3>Compile kernel</h3>
             <ol>
             <li>Choose distro on your PC to adapt the guide:
+              <!-- PC DISTRO CHOOSING -->
               <ul class="nav nav-tabs" id="pcosTab">
-                <li class="active"><a href="#deb" data-toggle="tab" data-target=".deb-tab">Debian or Ubuntu</a></li>
-                <li><a href="#arch" data-toggle="tab" data-target=".arch-tab">Arch<span class="label label-warning">not ready</span></a></li>
+                <li class="active"><a href="#deb" data-toggle="tab" data-target=".debpc-tab">Debian or Ubuntu</a></li>
+                <li><a href="#arch" data-toggle="tab" data-target=".archpc-tab">Arch<span class="label label-warning">not ready</span></a></li>
               </ul>
             </li>
             <li>Boot up your GNU/Linux PC</li>
@@ -123,11 +125,12 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
               <div class="alert alert-info">
               You have to do this step only once on a PC
               </div>
+              <!-- PC DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane deb-tab active">
+                <div class="tab-pane debpc-tab active">
                   <pre>sudo apt-get install git build-essential libncurses5-dev</pre>
                 </div>
-                <div class="tab-pane arch-tab">
+                <div class="tab-pane archpc-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
@@ -162,6 +165,7 @@ export SUBARCH=armv7h
 make n8000_linux_mali_defconfig</pre>
             </li>
             <li>Configure kernel to make it bootable:
+              <!-- PLACE SPECIFIC -->
               <div class="tab-content">
                 <div class="tab-pane imgfile-tab active">
                   <div class="alert">
@@ -205,10 +209,17 @@ rm -r N8000/compiledmodules</pre>
             </ol>
             <h3>Create rootfs</h3>
             <ol>
+            <li>Choose distro you want on your Samsung Galaxy Note 10.1 to adapt the guide:
+              <!-- SGN DISTRO CHOOSING -->
+              <ul class="nav nav-tabs" id="sgnosTab">
+                <li class="active"><a href="#deb" data-toggle="tab" data-target=".debsgn-tab">Debian or Ubuntu<span class="label label-warning">not ready</span></a></li>
+                <li><a href="#arch" data-toggle="tab" data-target=".archsgn-tab">Arch<span class="label label-warning">not ready</span></a></li>
+              </ul>
+            </li>
             <li>Get <a href="https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy">LinuxDeploy</a> and apply these settings:
-
+              <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane deb-tab active">                  
+                <div class="tab-pane debsgn-tab active">                  
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -232,6 +243,7 @@ rm -r N8000/compiledmodules</pre>
                       <tr>
                         <td>Installation type</td>
                         <td>
+                          <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
                             <div class="tab-pane imgfile-tab active">
                               Image file
@@ -246,6 +258,7 @@ rm -r N8000/compiledmodules</pre>
                       <tr>
                         <td>Installation path</td>
                         <td>
+                          <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
                             <div class="tab-pane imgfile-tab active">
                               path to linux.img. For example, <pre>/mnt/sdcard/linux.img</pre>
@@ -283,7 +296,7 @@ rm -r N8000/compiledmodules</pre>
                     </tbody>
                   </table>
                 </div>
-                <div class="tab-pane arch-tab">
+                <div class="tab-pane archsgn-tab">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -303,6 +316,7 @@ rm -r N8000/compiledmodules</pre>
                       <tr>
                         <td>Installation type</td>
                         <td>
+                          <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
                             <div class="tab-pane imgfile-tab active">
                               Image file
@@ -315,6 +329,7 @@ rm -r N8000/compiledmodules</pre>
                         </td>
                       </tr>
                       <tr>
+                        <!-- PLACE SPECIFIC -->
                         <td>Installation path</td>
                         <td>
                           <div class="tab-content">
@@ -354,7 +369,7 @@ rm -r N8000/compiledmodules</pre>
                     </tbody>
                   </table>
               </div>
-
+            </div>
             </li>
             <li>Install GNU/Linux in LinuxDeploy</li>
             <li>Start GNU/Linux in LinuxDeploy</li>
@@ -365,8 +380,9 @@ cp -r /mnt/sdcard/results/lib/modules /lib/
 </pre>
             </li>
             <li>Create bootable recovery and flash it:
+              <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane deb-tab active">
+                <div class="tab-pane debsgn-tab active">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>
@@ -376,7 +392,7 @@ mkinitramfs <span class="label label-warning">help needed, is specific to the in
 abootimg <span class="label label-warning">help needed</span>
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                 </div>
-                <div class="tab-pane arch-tab">
+                <div class="tab-pane archsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
@@ -388,14 +404,16 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
               </div>
             </li>
             <li>Install basic device drivers, settings and desktop environments:
-                <div class="tab-pane deb-tab active">
+              <!-- SGN DISTRO SPECIFIC -->
+              <div class="tab-content">
+                <div class="tab-pane debsgn-tab active">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>
 <pre class="prettyprint linenums">apt-get install xserver-xorg-video-fbdev xserver-xorg-input-evdev <span class="label label-warning">help needed</span>
 </pre>
                 </div>
-                <div class="tab-pane arch-tab">
+                <div class="tab-pane archsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
@@ -444,12 +462,15 @@ fdisk -l /dev/block/mmcblk1</pre>
                 window.prettyPrint && prettyPrint()   
               })
             }(window.jQuery)
-
             $('#pcosTab a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
             });
             $('#notelocatTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+            $('#sgnosTab a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
             });

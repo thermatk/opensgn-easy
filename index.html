@@ -42,9 +42,9 @@
               <div class="alert alert-info">
               What is currently known to work which means it's achievable if anyone helps to get the guide through initial booting!
               </div>
-              <h2>Working:</h2>
+              <h4>Working:</h4>
               <p>CPU, screen, touchscreen, S-pen, GPU framebuffer, GPU with OpenGL ES, internalSD, externalSD, WiFi, Bluetooth, ?</p>
-              <h2>WIP:</h2>
+              <h4>WIP:</h4>
               <p>modem(exception13 <a href="http://forum.xda-developers.com/showpost.php?p=39625443&postcount=222">shared some success</a>), cameras, gps, better GPU driver, MHL this guide :)</p>
             <h1 id="instructions">Instruction</h1>
 
@@ -100,7 +100,7 @@ su
 dd if=recovery.img of=/dev/block/mmcblk0p6</pre>
             </li>
             <li>If you want to boot from a partition, <a href="#repartition">prepared a partition</a> and downloaded a passing recovery in the same app type:
-              <span class="label label-warning">help needed, resize2fs is not included in BusyBox and with after dd ext4 is not knowing about free space</span>
+              <span class="label label-warning">help needed, resize2fs is not included in BusyBox and after dd ext4 is not knowing about free space</span>
 <pre class="prettyprint linenums">
 dd if=linux.img of=/dev/block/mmcblk1p1</pre>
             </li>

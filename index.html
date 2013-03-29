@@ -85,6 +85,7 @@
             <li>Samsung Galaxy Note 10.1 with root, BusyBox, terminal emulator app and some free space</li>
             <li>A real or virtual PC with your favorite GNU/Linux distro and some free space</li>
             <li>Some free time</li>
+            <li>A good internet connection</li>
             </ul>
 
             <h2>Easy way - using prepared binaries</h2>
@@ -477,7 +478,7 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                   </div>
                 </div>
                 <div class="tab-pane archsgn-tab">
-<pre class="prettyprint linenums">pacman -S mkinitcpio cpio util-linux libsigsegv base-devel packer git
+<pre class="prettyprint linenums">pacman -S mkinitcpio cpio libsigsegv base-devel packer git
 ln -s /proc/self/fd /dev/fd
 packer -S abootimg-git
 cd /boot</pre>

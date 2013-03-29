@@ -455,7 +455,7 @@ cp -r /mnt/sdcard/results/lib/modules /lib/
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>
 <pre class="prettyprint linenums">apt-get update
-apt-get install abootimg
+apt-get install abootimg git
 cd /boot</pre>
                   <!-- PLACE SPECIFIC -->
                   <div class="tab-content">
@@ -506,6 +506,9 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
               </div>
             </li>
             <li>Install basic device drivers, settings and desktop environments:
+<pre class="prettyprint linenums">cd ~
+git clone https://github.com/thermatk/opensgn-easy.git -b commonfiles
+cp opensgn-easy/xorg.conf /etc/X11/xorg.conf</pre>
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
                 <div class="tab-pane default-tab active">
@@ -517,14 +520,49 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>
-<pre class="prettyprint linenums">apt-get install xserver-xorg-video-fbdev xserver-xorg-input-evdev <span class="label label-warning">help needed</span>
-</pre>
+<pre>apt-get install xserver-xorg-video-fbdev xserver-xorg-input-evdev <span class="label label-warning">help needed</span></pre>
+                  <!-- SGN DESKTOP ENVIRONMENT SPECIFIC -->
+                  <div class="tab-content">
+                    <div class="tab-pane default-tab active">
+                      <div class="alert alert-error">
+                        <strong>Nothing to show!</strong> Choose a desktop environment you want to have on your SGN on the navigation bar.
+                      </div>
+                    </div>
+                    <div class="tab-pane lxde-tab">
+<pre class="prettyprint linenums">apt-get install <span class="label label-warning">help needed</span></pre>
+                    </div>
+                    <div class="tab-pane xfce-tab">
+                      <div class="alert">
+                        <strong>Warning!</strong> Section is not ready yet.
+                      </div>
+<pre>apt-get install <span class="label label-warning">help needed</span></pre>                                
+                    </div>
+                  </div>
                 </div>
                 <div class="tab-pane archsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
-<pre>pacman -Sy xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils</pre>
+<pre>pacman -S xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils</pre>
+                  <!-- SGN DESKTOP ENVIRONMENT SPECIFIC -->
+                  <div class="tab-content">
+                    <div class="tab-pane default-tab active">
+                      <div class="alert alert-error">
+                        <strong>Nothing to show!</strong> Choose a desktop environment you want to have on your SGN on the navigation bar.
+                      </div>
+                    </div>
+                    <div class="tab-pane lxde-tab">
+<pre class="prettyprint linenums">pacman -S lxde
+systemctl enable lxdm.service
+<span class="label label-warning">do we need to unlock keyrings?</span></pre>
+                    </div>
+                    <div class="tab-pane xfce-tab">
+                      <div class="alert">
+                        <strong>Warning!</strong> Section is not ready yet.
+                      </div>
+<pre>pacman -S <span class="label label-warning">help needed</span></pre>                                
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>

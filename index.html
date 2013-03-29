@@ -601,7 +601,7 @@ cat /etc/X11/xorg.conf</pre>
                     <div class="tab-pane lxde-tab">
 <pre class="prettyprint linenums">pacman -S lxde
 systemctl enable lxdm.service</pre>
-                      If you want to be able to type "changeme" password without attaching USB-OTG keyboard everytime execute:
+                      If you want to be able to type the "changeme" password without attaching USB-OTG keyboard everytime you reboot execute:
 <pre class="prettyprint linenums">pacman -S xvkbd
 echo "sh /usr/local/bin/my_xvkbd.sh &amp;" &gt;&gt; /etc/lxdm/LoginReady
 chmod +x /etc/lxdm/LoginReady

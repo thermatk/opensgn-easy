@@ -619,9 +619,14 @@ chmod +x /etc/lxdm/PreLogin</pre>
                     </div>
                     <div class="tab-pane xfce-tab">
                       <div class="alert">
-                        <strong>Warning!</strong> Section is not ready yet.
+                        <strong>Warning!</strong> In XFCE you can't touch window borders(means move or close windows) with fingers but you can with S-pen. it's a known bug of bad multitouch handling. Also until osk patch will be applied to lightdm-gtk-greeter you will have to make it autologin if you don't want to attach your USB-OTG keyboard everytime you reboot.
                       </div>
-<pre>pacman -S <span class="label label-warning">help needed</span></pre>                                
+<pre class="prettyprint linenums">pacman -S xfce4 lightdm lightdm-gtk3-greeter
+systemctl enable lightdm.service</pre>
+                      To enable autologin to XFCE:
+<pre class="prettyprint linenums">/usr/lib/lightdm/lightdm/lightdm-set-defaults --autologin=android
+groupadd autologin
+gpasswd -a android autologin</pre>                   
                     </div>
                   </div>
                 </div>

@@ -498,7 +498,7 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                     </div>
                     <div class="tab-pane partition-tab">
 <pre class="prettyprint linenums">mkinitcpio -k `ls /lib/modules/` -g initrd.img
-abootimg --create recovery.img -k zImage -r initrd.img -c "cmdline = root=/dev/mmcblk1p1"
+abootimg --create recovery.img -k zImage -r initrd.img
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                     </div>
                   </div>
@@ -524,7 +524,7 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>                  
-<pre>pacman -S xf86-video-fbdev xf86-input-evdev <span class="label label-warning">help needed</span></pre>
+<pre>pacman -Sy xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils </pre>
                 </div>
               </div>
             </li>

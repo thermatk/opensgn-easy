@@ -600,8 +600,25 @@ cat /etc/X11/xorg.conf</pre>
                     </div>
                     <div class="tab-pane lxde-tab">
 <pre class="prettyprint linenums">pacman -S lxde
-systemctl enable lxdm.service
-<span class="label label-warning">do we need to unlock keyrings?</span></pre>
+systemctl enable lxdm.service</pre>
+                      If you want to be able to type "changeme" password without attaching USB-OTG keyboard everytime execute:
+<pre class="prettyprint linenums">pacman -S xvkbd
+echo "sh /usr/local/bin/my_xvkbd.sh &amp;" &gt;&gt; /etc/lxdm/LoginReady
+chmod +x /etc/lxdm/LoginReady
+cat &gt;/usr/local/bin/my_xvkbd.sh &lt;&lt;EOL
+#!/bin/sh
+pkill -9 xvkbd 2>/dev/null
+if [ "\$1" != stop ]
+then
+  sleep 2
+  /usr/bin/xvkbd -g "1000x300+0+0"
+fi
+EOL
+
+cat /usr/local/bin/my_xvkbd.sh
+chmod +x /usr/local/bin/my_xvkbd.sh
+echo "sh /usr/local/bin/my_xvkbd.sh stop &amp;" &gt;&gt; /etc/lxdm/PreLogin
+chmod +x /etc/lxdm/PreLogin</pre>
                     </div>
                     <div class="tab-pane xfce-tab">
                       <div class="alert">

@@ -23,16 +23,36 @@
           <ul class="nav">
             <li><a href="#instructions">Instruction</a></li>
             <li>
-              <select class="navbar-form select navbarselect">
+              <select class="navbar-form select navbarselect" autocomplete="off">
                 <option selected="selected" disabled>Choose PC distro:</option>
                 <option data-toggle="tab" data-target=".debpc-tab">Debian/Ubuntu</option>                
                 <option data-toggle="tab" data-target=".archpc-tab">Arch</option>
               </select>
             </li>
-            <li><a href="#">NOTE DISTRO SELECTION</a></li>            
-            <li><a href="#">NOTE INSTALLATION PATH</a></li>                        
-            <li><a href="#">NOTE DESKTOP ENVIRONMENT</a></li>
-            <a href="#" class="pull-right">this header is currently useless, use tabs!</a>
+            <li class="divider-vertical"></li>
+            <li>
+              <select class="navbar-form select navbarselect" autocomplete="off">
+                <option selected="selected" disabled>Choose distro for SGN10.1:</option>
+                <option data-toggle="tab" data-target=".debsgn-tab">Debian/Ubuntu</option>                
+                <option data-toggle="tab" data-target=".archsgn-tab">Arch</option>
+              </select>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <select class="navbar-form select navbarselect" autocomplete="off">
+                <option selected="selected" disabled>To be installed on:</option>
+                <option data-toggle="tab" data-target=".imgfile-tab">img file</option>                
+                <option data-toggle="tab" data-target=".partition-tab">separate partition</option>
+              </select>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <select class="navbar-form select navbarselect" autocomplete="off">
+                <option selected="selected" disabled>With desktop environment:</option>
+                <option data-toggle="tab" data-target=".lxde-tab">LXDE</option>                
+                <option data-toggle="tab" data-target=".xfce-tab">XFCE</option>
+              </select>
+            </li>
           </ul>
         </div>
       </div>
@@ -117,21 +137,21 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
             <p>Now you can turn off your tablet and boot up GNU/Linux by holding Volume Up and Power buttons.</p>
 
             <h2>Harder way - how to prepare binaries</h2>
+            <!-- PLACE CHOOSING deprecated 
             Choose where you want to place your native GNU/Linux to adapt the guide:
-            <!-- PLACE CHOOSING -->
             <ul class="nav nav-tabs" id="notelocatTab">
               <li class="active"><a href="#img_file" data-toggle="tab" data-target=".imgfile-tab">A linux.img file<span class="label label-warning">not ready</span></a></li>
               <li><a href="#partition" data-toggle="tab" data-target=".partition-tab">Separate partition<span class="label label-warning">not ready</span></a></li>
-            </ul>
+            </ul> -->
             <h3>Compile kernel</h3>
             <ol>
-            <li>Choose distro on your PC to adapt the guide:
-              <!-- PC DISTRO CHOOSING -->
+            <!-- PC DISTRO CHOOSING deprecated 
+            <li>Choose distro on your PC to adapt the guide:              
               <ul class="nav nav-tabs" id="pcosTab">
                 <li class="active"><a href="#deb" data-toggle="tab" data-target=".debpc-tab">Debian or Ubuntu</a></li>
                 <li><a href="#arch" data-toggle="tab" data-target=".archpc-tab">Arch<span class="label label-warning">not ready</span></a></li>
               </ul>
-            </li>
+            </li>-->
             <li>Boot up your GNU/Linux PC</li>
             <li>Install packages necessary for building:
               <div class="alert alert-info">
@@ -139,7 +159,12 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
               </div>
               <!-- PC DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane debpc-tab active">
+                <div class="tab-pane default-tab active">
+                  <div class="alert alert-error">
+                    <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                  </div>
+                </div>
+                <div class="tab-pane debpc-tab">
                   <pre>sudo apt-get install git build-essential libncurses5-dev</pre>
                 </div>
                 <div class="tab-pane archpc-tab">               
@@ -176,7 +201,12 @@ make n8000_linux_mali_defconfig</pre>
             <li>Configure kernel to make it bootable:
               <!-- PLACE SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane imgfile-tab active">
+                <div class="tab-pane default-tab active">
+                  <div class="alert alert-error">
+                    <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                  </div>
+                </div>
+                <div class="tab-pane imgfile-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section about linux.img file is not ready yet. Choose installation to a separate partition :)
                   </div>      
@@ -220,17 +250,22 @@ rm -r N8000/compiledmodules</pre>
             </ol>
             <h3>Create rootfs</h3>
             <ol>
+            <!-- SGN DISTRO CHOOSING deprecated
             <li>Choose distro you want on your Samsung Galaxy Note 10.1 to adapt the guide:
-              <!-- SGN DISTRO CHOOSING -->
               <ul class="nav nav-tabs" id="sgnosTab">
                 <li class="active"><a href="#deb" data-toggle="tab" data-target=".debsgn-tab">Debian or Ubuntu<span class="label label-warning">not ready</span></a></li>
                 <li><a href="#arch" data-toggle="tab" data-target=".archsgn-tab">Arch<span class="label label-warning">not ready</span></a></li>
               </ul>
-            </li>
+            </li>-->
             <li>Get <a href="https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy">LinuxDeploy</a> and apply these settings:
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane debsgn-tab active">                  
+                <div class="tab-pane default-tab active">
+                  <div class="alert alert-error">
+                    <strong>Nothing to show!</strong> Choose a distro you want to have on your SGN on the navigation bar.
+                  </div>
+                </div>
+                <div class="tab-pane debsgn-tab">                  
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -256,7 +291,12 @@ rm -r N8000/compiledmodules</pre>
                         <td>
                           <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
-                            <div class="tab-pane imgfile-tab active">
+                            <div class="tab-pane default-tab active">
+                              <div class="alert alert-error">
+                                <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                              </div>
+                            </div>
+                            <div class="tab-pane imgfile-tab">
                               Image file
                             </div>
                             <div class="tab-pane partition-tab">
@@ -270,7 +310,12 @@ rm -r N8000/compiledmodules</pre>
                         <td>
                           <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
-                            <div class="tab-pane imgfile-tab active">
+                            <div class="tab-pane default-tab active">
+                              <div class="alert alert-error">
+                                <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                              </div>
+                            </div>
+                            <div class="tab-pane imgfile-tab">
                               path to linux.img. For example, <pre>/mnt/sdcard/linux.img</pre>
                             </div>
 
@@ -328,7 +373,12 @@ rm -r N8000/compiledmodules</pre>
                         <td>
                           <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
-                            <div class="tab-pane imgfile-tab active">
+                            <div class="tab-pane default-tab active">
+                              <div class="alert alert-error">
+                                <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                            </div>
+                            </div>
+                            <div class="tab-pane imgfile-tab">
                               Image file
                             </div>
                             <div class="tab-pane partition-tab">
@@ -342,7 +392,12 @@ rm -r N8000/compiledmodules</pre>
                         <td>
                           <!-- PLACE SPECIFIC -->
                           <div class="tab-content">
-                            <div class="tab-pane imgfile-tab active">
+                            <div class="tab-pane default-tab active">
+                              <div class="alert alert-error">
+                                <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                              </div>
+                            </div>
+                            <div class="tab-pane imgfile-tab">
                               path to linux.img. For example, <pre>/mnt/sdcard/linux.img</pre>
                             </div>
 
@@ -390,7 +445,12 @@ cp -r /mnt/sdcard/results/lib/modules /lib/
             <li>Create bootable recovery and flash it:
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane debsgn-tab active">
+                <div class="tab-pane default-tab active">
+                  <div class="alert alert-error">
+                    <strong>Nothing to show!</strong> Choose a distro you want to have on your SGN on the navigation bar.
+                  </div>
+                </div>
+                <div class="tab-pane debsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>
@@ -399,7 +459,12 @@ apt-get install abootimg
 cd /boot</pre>
                   <!-- PLACE SPECIFIC -->
                   <div class="tab-content">
-                    <div class="tab-pane imgfile-tab active">
+                    <div class="tab-pane default-tab active">
+                      <div class="alert alert-error">
+                        <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                      </div>
+                    </div>
+                    <div class="tab-pane imgfile-tab">
 <pre class="prettyprint linenums">mkinitramfs <span class="label label-warning">help needed</span>
 abootimg --create recovery.img -k zImage -r initrd.img <span class="label label-warning">help needed</span>
 dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
@@ -418,7 +483,12 @@ packer -S abootimg-git
 cd /boot</pre>
                   <!-- PLACE SPECIFIC -->
                   <div class="tab-content">
-                    <div class="tab-pane imgfile-tab active">
+                    <div class="tab-pane default-tab active">
+                      <div class="alert alert-error">
+                        <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                      </div>
+                    </div>
+                    <div class="tab-pane imgfile-tab">
                       <div class="alert">
                         <strong>Warning!</strong> Section is not ready yet.
                       </div>     
@@ -438,7 +508,12 @@ dd if=/boot/recovery.img of=/dev/block/mmcblk0p6</pre>
             <li>Install basic device drivers, settings and desktop environments:
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
-                <div class="tab-pane debsgn-tab active">
+                <div class="tab-pane default-tab active">
+                  <div class="alert alert-error">
+                    <strong>Nothing to show!</strong> Choose a distro you want to have on your SGN on the navigation bar.
+                  </div>
+                </div>
+                <div class="tab-pane debsgn-tab">
                   <div class="alert">
                     <strong>Warning!</strong> Section is not ready yet.
                   </div>

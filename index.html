@@ -555,8 +555,7 @@ Section "DRI"
 EndSection
 EOL
 
-echo "options dhd op_mode=0 nvram_path=/opt/wifi/nvram_net.txt_murata firmware_path=/opt/wifi/bcmdhd_sta.bin" >> /etc/modprobe.d/dhd.conf
-</pre>
+echo "options dhd op_mode=0 nvram_path=/opt/wifi/nvram_net.txt_murata firmware_path=/opt/wifi/bcmdhd_sta.bin" &gt;&gt; /etc/modprobe.d/dhd.conf</pre>
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
                 <div class="tab-pane default-tab active">
@@ -588,10 +587,11 @@ echo "options dhd op_mode=0 nvram_path=/opt/wifi/nvram_net.txt_murata firmware_p
                   </div>
                 </div>
                 <div class="tab-pane archsgn-tab">                  
-<pre class="prettyprint linenums">pacman -S xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils wpa_supplicant network-manager-applet networkmanager
+<pre class="prettyprint linenums">pacman -S xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils wpa_supplicant wicd bluez python2-dbus python2-gobject
 systemctl disable net-auto-wireless.service
-systemctl enable NetworkManager.service
-echo "dhd" >> /etc/modules-load.d/dhd.conf</pre>
+systemctl enable wicd.service
+gpasswd -a android users
+echo "dhd" &gt;&gt; /etc/modules-load.d/dhd.conf</pre>
                   <!-- SGN DESKTOP ENVIRONMENT SPECIFIC -->
                   <div class="tab-content">
                     <div class="tab-pane default-tab active">
@@ -600,7 +600,7 @@ echo "dhd" >> /etc/modules-load.d/dhd.conf</pre>
                       </div>
                     </div>
                     <div class="tab-pane lxde-tab">
-<pre class="prettyprint linenums">pacman -S lxde
+<pre class="prettyprint linenums">pacman -S lxde wicd-gtk
 systemctl enable lxdm.service</pre>
                       If you want to be able to type the "changeme" password without attaching USB-OTG keyboard everytime you reboot execute:
 <pre class="prettyprint linenums">pacman -S xvkbd
@@ -625,7 +625,7 @@ chmod +x /etc/lxdm/PreLogin</pre>
                       <div class="alert">
                         <strong>Warning!</strong> In XFCE you can't touch window borders(means move or close windows) with fingers but you can with S-pen. it's a known bug of bad multitouch handling. Also until osk patch will be applied to lightdm-gtk-greeter you will have to make it autologin if you don't want to attach your USB-OTG keyboard everytime you reboot.
                       </div>
-<pre class="prettyprint linenums">pacman -S xfce4 lightdm lightdm-gtk3-greeter
+<pre class="prettyprint linenums">pacman -S xfce4 lightdm lightdm-gtk3-greeter wicd-gtk
 systemctl enable lightdm.service</pre>
                       To enable autologin to XFCE:
 <pre class="prettyprint linenums">/usr/lib/lightdm/lightdm/lightdm-set-defaults --autologin=android

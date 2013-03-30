@@ -55,7 +55,7 @@
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Playground
+              <span id="playmenu">Playground</span>
               <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
@@ -723,7 +723,7 @@ fdisk -l /dev/block/mmcblk1</pre>
                 window.prettyPrint && prettyPrint()   
               })
             }(window.jQuery)
-            $('#pcosTab a').click(function (e) {
+/*            $('#pcosTab a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
             });
@@ -734,6 +734,9 @@ fdisk -l /dev/block/mmcblk1</pre>
             $('#sgnosTab a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
+            });*/
+            $(".dropdown-menu").children().on("click", function() {
+              $(this).parent().parent().find("#playmenu").html($(this).text());
             });
           </script>
 

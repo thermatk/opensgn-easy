@@ -22,45 +22,48 @@
           <a class="brand" href="#" data-toggle="tooltip" title="Necessary files and documentation for easily building native GNU/Linux system for Samsung Galaxy Note 10.1">OpenSGN-easy</a>
           <ul class="nav">
             <li><a href="#instructions">Go to instruction</a></li>
-            <li>
-              <select class="navbar-form select navbarselect" autocomplete="off">
-                <option selected="selected" disabled>Choose PC distro:</option>
-                <option data-toggle="tab" data-target=".debpc-tab">Debian/Ubuntu</option>                
-                <option data-toggle="tab" data-target=".archpc-tab">Arch</option>
-              </select>
-            </li>
-            <li class="divider-vertical"></li>
-            <li>
-              <select class="navbar-form select navbarselect" autocomplete="off">
-                <option selected="selected" disabled>Choose distro for SGN10.1:</option>
-                <option data-toggle="tab" data-target=".debsgn-tab">Debian/Ubuntu</option>                
-                <option data-toggle="tab" data-target=".archsgn-tab">Arch</option>
-              </select>
-            </li>
-            <li class="divider-vertical"></li>
-            <li>
-              <select class="navbar-form select navbarselect" autocomplete="off">
-                <option selected="selected" disabled>To be installed on:</option>
-                <option data-toggle="tab" data-target=".imgfile-tab">img file</option>                
-                <option data-toggle="tab" data-target=".partition-tab">separate partition</option>
-              </select>
-            </li>
-            <li class="divider-vertical"></li>
-            <li>
-              <select class="navbar-form select navbarselect" autocomplete="off">
-                <option selected="selected" disabled>With desktop environment:</option>
-                <option data-toggle="tab" data-target=".lxde-tab">LXDE</option>                
-                <option data-toggle="tab" data-target=".xfce-tab">XFCE</option>
-              </select>
-            </li>
+            <li><a>I want to install</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="playmenu">Playground</span>
+              <span id="playmenu">choose distro</span>
               <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#first" data-toggle="tab" data-target=".first-tab">Classic first</a></li>
-                <li><a href="#second" data-toggle="tab" data-target=".second-tab">Classic second</a></li>
+                <li><a href="#first" data-toggle="tab" data-target=".debsgn-tab">Debian/Ubuntu</a></li>
+                <li><a href="#second" data-toggle="tab" data-target=".archsgn-tab">Arch</a></li>
+              </ul>
+            </li>
+            <li><a>with</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span id="playmenu">choose DE</span>
+              <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#first" data-toggle="tab" data-target=".lxde-tab">LXDE</a></li>
+                <li><a href="#second" data-toggle="tab" data-target=".xfce-tab">XFCE</a></li>
+              </ul>
+            </li>            
+            <li><a>to</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span id="playmenu">choose place</span>
+              <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#first" data-toggle="tab" data-target=".imgfile-tab">img file</a></li>
+                <li><a href="#second" data-toggle="tab" data-target=".partition-tab">separate partition</a></li>
+              </ul>
+            </li>            
+            <li><a>in my SGN using</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span id="playmenu">choose distro on your PC</span>
+              <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#first" data-toggle="tab" data-target=".debpc-tab">Debian/Ubuntu</a></li>
+                <li><a href="#second" data-toggle="tab" data-target=".archpc-tab">Arch</a></li>
               </ul>
             </li>
           </ul>
@@ -172,7 +175,7 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
               <div class="tab-content">
                 <div class="tab-pane default-tab active">
                   <div class="alert alert-error">
-                    <strong>Nothing to show!</strong> Choose the installation place on the navigation bar.
+                    <strong>Nothing to show!</strong> Choose the distro of PC where you work on the navigation bar.
                   </div>
                 </div>
                 <div class="tab-pane debpc-tab">

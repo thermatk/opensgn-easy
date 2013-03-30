@@ -151,21 +151,9 @@ dd if=linux.img of=/dev/block/mmcblk1p1</pre>
             <p>Now you can turn off your tablet and boot up GNU/Linux by holding Volume Up and Power buttons.</p>
 
             <h2>Harder way - how to prepare binaries</h2>
-            <!-- PLACE CHOOSING deprecated 
-            Choose where you want to place your native GNU/Linux to adapt the guide:
-            <ul class="nav nav-tabs" id="notelocatTab">
-              <li class="active"><a href="#img_file" data-toggle="tab" data-target=".imgfile-tab">A linux.img file<span class="label label-warning">not ready</span></a></li>
-              <li><a href="#partition" data-toggle="tab" data-target=".partition-tab">Separate partition<span class="label label-warning">not ready</span></a></li>
-            </ul> -->
+
             <h3>Compile kernel</h3>
             <ol>
-            <!-- PC DISTRO CHOOSING deprecated 
-            <li>Choose distro on your PC to adapt the guide:              
-              <ul class="nav nav-tabs" id="pcosTab">
-                <li class="active"><a href="#deb" data-toggle="tab" data-target=".debpc-tab">Debian or Ubuntu</a></li>
-                <li><a href="#arch" data-toggle="tab" data-target=".archpc-tab">Arch<span class="label label-warning">not ready</span></a></li>
-              </ul>
-            </li>-->
             <li>Boot up your GNU/Linux PC</li>
             <li>Install packages necessary for building:
               <div class="alert alert-info">
@@ -270,13 +258,6 @@ cp -r opensgn-easy/firmware/bluez results/opt/</pre>
             </ol>
             <h3>Create rootfs</h3>
             <ol>
-            <!-- SGN DISTRO CHOOSING deprecated
-            <li>Choose distro you want on your Samsung Galaxy Note 10.1 to adapt the guide:
-              <ul class="nav nav-tabs" id="sgnosTab">
-                <li class="active"><a href="#deb" data-toggle="tab" data-target=".debsgn-tab">Debian or Ubuntu<span class="label label-warning">not ready</span></a></li>
-                <li><a href="#arch" data-toggle="tab" data-target=".archsgn-tab">Arch<span class="label label-warning">not ready</span></a></li>
-              </ul>
-            </li>-->
             <li>Get <a href="https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy">LinuxDeploy</a> and apply these settings:
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
@@ -726,18 +707,6 @@ fdisk -l /dev/block/mmcblk1</pre>
                 window.prettyPrint && prettyPrint()   
               })
             }(window.jQuery)
-/*            $('#pcosTab a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });
-            $('#notelocatTab a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });
-            $('#sgnosTab a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });*/
             $(".dropdown-menu").children().on("click", function() {
               $(this).parent().parent().find("#playmenu").html($(this).text());
             });

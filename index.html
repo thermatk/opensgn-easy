@@ -555,7 +555,9 @@ Section "DRI"
 EndSection
 EOL
 
-cat /etc/X11/xorg.conf</pre>
+echo "sudo insmod /lib/modules/`ls /lib/modules/`/kernel/net/wireless/cfg80211.ko" >> /etc/rc.local
+echo "sudo insmod /lib/modules/`ls /lib/modules/`/kernel/drivers/net/wireless/bcmdhd/dhd.ko op_mode=0 firmware_path=/opt/wifi/bcmdhd_sta.bin nvram_path=/opt/wifi/nvram_net.txt_murata" >> /etc/rc.local
+</pre>
               <!-- SGN DISTRO SPECIFIC -->
               <div class="tab-content">
                 <div class="tab-pane default-tab active">
@@ -587,7 +589,9 @@ cat /etc/X11/xorg.conf</pre>
                   </div>
                 </div>
                 <div class="tab-pane archsgn-tab">                  
-<pre>pacman -S xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils</pre>
+<pre class="prettyprint linenums">pacman -S xf86-video-fbdev xf86-input-evdev xorg-server xorg-xinit xorg-utils xorg-server-utils wpa_supplicant network-manager-applet networkmanager
+systemctl disable net-auto-wireless.service
+systemctl enable NetworkManager.service</pre>
                   <!-- SGN DESKTOP ENVIRONMENT SPECIFIC -->
                   <div class="tab-content">
                     <div class="tab-pane default-tab active">

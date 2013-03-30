@@ -246,6 +246,12 @@ cp N8000/.config results/boot/config-`ls N8000/compiledmodules/lib/modules/`
 cp -r N8000/compiledmodules/lib/ results/
 rm -r N8000/compiledmodules</pre>
             </li>
+            <li>Get firmware files for wifi and bluetooth and copy to the same folder:
+<pre class="prettyprint linenums">git clone https://github.com/thermatk/opensgn-easy.git -b commonfiles
+mkdir results/opt
+cp -r opensgn-easy/firmware/wifi results/opt/
+cp -r opensgn-easy/firmware/bluez results/opt/</pre>
+            </li>
             <li>Transfer the "results" folder to the root of your internal sdcard with any instrument you like.
             </li>
             </ol>
@@ -441,6 +447,7 @@ rm -r N8000/compiledmodules</pre>
 <pre class="prettyprint linenums">/data/local/linux/bin/linuxdeploy shell
 cp -r /mnt/sdcard/results/boot /
 cp -r /mnt/sdcard/results/lib/modules /lib/
+cp -r /mnt/sdcard/results/opt /
 </pre>
             </li>
             <li>Create bootable recovery and flash it:

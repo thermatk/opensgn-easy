@@ -9,64 +9,72 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/prettify.css" rel="stylesheet">
 
     <title>OpenSGN-easy project</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/thermatk/opensgn-easy">View on GitHub</a>
+    <!--<a id="forkme_banner" href="https://github.com/thermatk/opensgn-easy">View on GitHub</a>-->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container" style="width: auto; padding: 0 20px;">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
           <a class="brand" href="#" data-toggle="tooltip" title="Necessary files and documentation for easily building native GNU/Linux system for Samsung Galaxy Note 10.1">OpenSGN-easy</a>
-          <ul class="nav">
-            <li><a href="#instructions">Go to instruction</a></li>
-            <li><p class="navbar-text">I want to install</p></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="playmenu">choose distro</span>
-              <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#first" data-toggle="tab" data-target=".debsgn-tab">Debian/Ubuntu</a></li>
-                <li><a href="#second" data-toggle="tab" data-target=".archsgn-tab">Arch</a></li>
-              </ul>
-            </li>
-            <li><p class="navbar-text">with</p></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="playmenu">choose DE</span>
-              <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#first" data-toggle="tab" data-target=".lxde-tab">LXDE</a></li>
-                <li><a href="#second" data-toggle="tab" data-target=".xfce-tab">XFCE</a></li>
-              </ul>
-            </li>            
-            <li><p class="navbar-text">to</p></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="playmenu">choose place</span>
-              <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#first" data-toggle="tab" data-target=".imgfile-tab">img file</a></li>
-                <li><a href="#second" data-toggle="tab" data-target=".partition-tab">separate partition</a></li>
-              </ul>
-            </li>            
-            <li><p class="navbar-text">in my SGN using</p></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="playmenu">choose distro on your PC</span>
-              <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#first" data-toggle="tab" data-target=".debpc-tab">Debian/Ubuntu</a></li>
-                <li><a href="#second" data-toggle="tab" data-target=".archpc-tab">Arch</a></li>
-              </ul>
-            </li>
-          </ul>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#instructions">Go to instruction</a></li>
+              <li><p class="navbar-text">I want to install</p></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span id="playmenu">choose distro</span>
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#first" data-toggle="tab" data-target=".debsgn-tab">Debian/Ubuntu</a></li>
+                  <li><a href="#second" data-toggle="tab" data-target=".archsgn-tab">Arch</a></li>
+                </ul>
+              </li>
+              <li><p class="navbar-text">with</p></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span id="playmenu">choose DE</span>
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#first" data-toggle="tab" data-target=".lxde-tab">LXDE</a></li>
+                  <li><a href="#second" data-toggle="tab" data-target=".xfce-tab">XFCE</a></li>
+                </ul>
+              </li>            
+              <li><p class="navbar-text">to</p></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span id="playmenu">choose place</span>
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#first" data-toggle="tab" data-target=".imgfile-tab">img file</a></li>
+                  <li><a href="#second" data-toggle="tab" data-target=".partition-tab">separate partition</a></li>
+                </ul>
+              </li>            
+              <li><p class="navbar-text">in my SGN using</p></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span id="playmenu">choose distro on your PC</span>
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#first" data-toggle="tab" data-target=".debpc-tab">Debian/Ubuntu</a></li>
+                  <li><a href="#second" data-toggle="tab" data-target=".archpc-tab">Arch</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
